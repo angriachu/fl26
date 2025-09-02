@@ -41,6 +41,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .navbar {
@@ -48,22 +49,44 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    flex-shrink: 0;
 }
 
 .logo a {
     text-decoration: none;
     color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    width: auto;
 }
 
 .logo h1 {
     font-size: 1.8rem;
     font-weight: 700;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links ul {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
 
 .nav-links a {
@@ -71,6 +94,9 @@ body {
     color: var(--text-color);
     font-weight: 500;
     transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a:hover {
@@ -81,10 +107,18 @@ body {
     color: var(--primary-color);
 }
 
+.contact-info {
+    flex-shrink: 0;
+}
+
 .contact-info a {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
 }
 
 /* Dropdown Styles */
@@ -152,6 +186,27 @@ body {
 
 /* Mobile Navigation Enhancements */
 @media (max-width: 767px) {
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    .logo {
+        align-self: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-info {
+        align-self: center;
+        order: -1;
+        margin-bottom: 0.5rem;
+    }
+    
     .nav-links {
         position: absolute;
         top: 100%;
@@ -178,10 +233,13 @@ body {
     
     .nav-links ul {
         padding: 1rem 0;
+        flex-direction: column;
+        gap: 0;
     }
     
     .nav-links li {
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        width: 100%;
     }
     
     .nav-links li:last-child {
@@ -194,6 +252,7 @@ body {
         justify-content: flex-start;
         border-radius: 0;
         position: relative;
+        min-height: 44px;
     }
     
     .nav-links a:hover {
@@ -315,6 +374,9 @@ body {
     text-align: center;
     padding: 120px 0 80px;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .hero-overlay {
@@ -335,30 +397,40 @@ body {
     text-align: center;
     color: white;
     padding: 2rem;
+    width: 100%;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-bottom: 2rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
 }
 
 .hero .container {
     position: relative;
     z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Button Styles */
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.8rem 2rem;
-    border-radius: 4px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -367,6 +439,10 @@ body {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
 }
 
 .btn-primary {
@@ -388,9 +464,24 @@ body {
     margin-left: 1rem;
 }
 
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 /* Services Section */
@@ -963,17 +1054,61 @@ body {
     }
     
     /* Better touch targets for mobile */
+.nav-links a,
+.dropdown-content a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+/* Smooth scrolling for mobile */
+.nav-links {
+    scroll-behavior: smooth;
+}
+
+/* Additional responsive improvements */
+@media (max-width: 768px) {
+    /* Improve touch targets */
+    .btn,
     .nav-links a,
     .dropdown-content a {
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-        user-select: none;
+        min-height: 44px;
+        min-width: 44px;
     }
     
-    /* Smooth scrolling for mobile */
-    .nav-links {
-        scroll-behavior: smooth;
+    /* Better spacing for mobile */
+    .section-title {
+        margin-bottom: 1.5rem;
     }
+    
+    .section-subtitle {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Improve grid layouts */
+    .areas-grid {
+        gap: 1.5rem;
+    }
+    
+    .solutions-grid,
+    .services-grid {
+        gap: 1.5rem;
+    }
+    
+    /* Better card layouts */
+    .area-card,
+    .solution-card,
+    .service-card {
+        margin-bottom: 0;
+    }
+    
+    /* Improve form elements */
+    input,
+    textarea,
+    select {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
     
     .hero-buttons {
         display: flex;
@@ -1972,10 +2107,19 @@ input:focus, textarea:focus, select:focus {
     line-height: 1.8;
 }
 
+.who-we-are-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .who-we-are-image img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
 }
 
 /* Solutions Section */
@@ -2029,6 +2173,69 @@ input:focus, textarea:focus, select:focus {
 .solutions-cta {
     text-align: center;
     margin-top: 3rem;
+}
+
+/* Responsive Image Handling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive Grid Improvements */
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.area-card {
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+}
+
+.area-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.area-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.area-card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.area-card p {
+    margin-bottom: 1rem;
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.onsite-badge {
+    background: linear-gradient(135deg, var(--success-color), #059669);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: auto;
 }
 
 /* Service Link */
@@ -2200,7 +2407,7 @@ input:focus, textarea:focus, select:focus {
 /* Responsive Design */
 @media (max-width: 768px) {
     .mobile-menu-btn {
-        display: block;
+        display: flex;
     }
 
     .nav-links {
@@ -2296,7 +2503,58 @@ input:focus, textarea:focus, select:focus {
     .dropdown-content a:hover {
         background-color: var(--background-color);
     }
-
+    
+    /* Hero section mobile optimization */
+    .hero {
+        padding: 100px 0 60px;
+        min-height: 80vh;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 2rem;
+    }
+    
+    .btn-secondary {
+        margin-left: 0;
+    }
+    
+    /* Container mobile optimization */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Section spacing mobile optimization */
+    .who-we-are,
+    .services,
+    .solutions,
+    .local-areas,
+    .why-us,
+    .contact {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
     .who-we-are-content {
         grid-template-columns: 1fr;
     }
@@ -2311,6 +2569,151 @@ input:focus, textarea:focus, select:focus {
 
     .clients-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Small (480px and below) */
+@media (max-width: 480px) {
+    .header {
+        padding: 0.25rem 0;
+    }
+    
+    .navbar {
+        gap: 0.25rem;
+    }
+    
+    .logo img {
+        max-height: 40px;
+    }
+    
+    .contact-info a {
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        padding: 80px 0 40px;
+        min-height: 70vh;
+    }
+    
+    .hero-content {
+        padding: 0.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .who-we-are,
+    .services,
+    .solutions,
+    .local-areas,
+    .why-us,
+    .contact {
+        padding: 2rem 0;
+    }
+    
+    .areas-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .area-card {
+        padding: 1rem;
+        min-height: 180px;
+    }
+    
+    .area-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .area-card p {
+        font-size: 0.85rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .service-card p {
+        font-size: 0.9rem;
+    }
+    
+    /* Additional mobile optimizations */
+    .who-we-are-content {
+        gap: 2rem;
+    }
+    
+    .who-we-are-text {
+        order: 2;
+    }
+    
+    .who-we-are-image {
+        order: 1;
+        margin-bottom: 1rem;
+    }
+    
+    .who-we-are-image img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .solutions-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .solution-card,
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .onsite-cta {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .onsite-cta h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .onsite-cta p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
     }
 }
 
