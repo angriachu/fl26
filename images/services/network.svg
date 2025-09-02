@@ -1,0 +1,120 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions -->
+  <defs>
+    <!-- Main gradient matching our theme -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <!-- Black blend overlay -->
+    <linearGradient id="blackBlend" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#000000;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <!-- Network pattern -->
+    <pattern id="networkPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="#ffffff" opacity="0.3"/>
+      <line x1="0" y1="20" x2="40" y2="20" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+      <line x1="20" y1="0" x2="20" y2="40" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background with our theme colors -->
+  <rect width="400" height="300" fill="url(#mainGradient)" rx="20"/>
+  
+  <!-- Black blend overlay -->
+  <rect width="400" height="300" fill="url(#blackBlend)" rx="20"/>
+  
+  <!-- Network pattern overlay -->
+  <rect width="400" height="300" fill="url(#networkPattern)" rx="20"/>
+  
+  <!-- Central network hub -->
+  <circle cx="200" cy="150" r="50" fill="none" stroke="#fbbf24" stroke-width="4" opacity="0.9"/>
+  <circle cx="200" cy="150" r="35" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+  <circle cx="200" cy="150" r="20" fill="#fbbf24" opacity="0.8"/>
+  
+  <!-- Network nodes -->
+  <!-- Top left node -->
+  <g transform="translate(80, 60)">
+    <circle cx="20" cy="20" r="15" fill="#1e3a8a" opacity="0.8"/>
+    <circle cx="20" cy="20" r="8" fill="#ffffff" opacity="0.9"/>
+    <circle cx="20" cy="20" r="3" fill="#1e3a8a" opacity="0.9"/>
+  </g>
+  
+  <!-- Top right node -->
+  <g transform="translate(300, 60)">
+    <circle cx="20" cy="20" r="15" fill="#3b82f6" opacity="0.8"/>
+    <circle cx="20" cy="20" r="8" fill="#ffffff" opacity="0.9"/>
+    <circle cx="20" cy="20" r="3" fill="#3b82f6" opacity="0.9"/>
+  </g>
+  
+  <!-- Bottom left node -->
+  <g transform="translate(80, 220)">
+    <circle cx="20" cy="20" r="15" fill="#60a5fa" opacity="0.8"/>
+    <circle cx="20" cy="20" r="8" fill="#ffffff" opacity="0.9"/>
+    <circle cx="20" cy="20" r="3" fill="#60a5fa" opacity="0.9"/>
+  </g>
+  
+  <!-- Bottom right node -->
+  <g transform="translate(300, 220)">
+    <circle cx="20" cy="20" r="15" fill="#fbbf24" opacity="0.8"/>
+    <circle cx="20" cy="20" r="8" fill="#ffffff" opacity="0.9"/>
+    <circle cx="20" cy="20" r="3" fill="#fbbf24" opacity="0.9"/>
+  </g>
+  
+  <!-- Connection lines to central hub -->
+  <line x1="100" y1="80" x2="150" y2="120" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+  <line x1="320" y1="80" x2="250" y2="120" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+  <line x1="100" y1="240" x2="150" y2="180" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+  <line x1="320" y1="240" x2="250" y2="180" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Secondary network connections -->
+  <line x1="100" y1="80" x2="100" y2="240" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-dasharray="3,3"/>
+  <line x1="300" y1="80" x2="300" y2="240" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-dasharray="3,3"/>
+  <line x1="80" y1="100" x2="300" y2="100" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-dasharray="3,3"/>
+  <line x1="80" y1="200" x2="300" y2="200" stroke="#ffffff" stroke-width="1" opacity="0.5" stroke-dasharray="3,3"/>
+  
+  <!-- Data flow indicators -->
+  <circle cx="150" cy="120" r="3" fill="#fbbf24" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="120" r="3" fill="#fbbf24" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+  </circle>
+  <circle cx="150" cy="180" r="3" fill="#fbbf24" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+  <circle cx="250" cy="180" r="3" fill="#fbbf24" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+  </circle>
+  
+  <!-- Wireless signal waves -->
+  <g transform="translate(200, 150)">
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="0" r="85" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.1"/>
+  </g>
+  
+  <!-- Network equipment icons -->
+  <!-- Router icon -->
+  <g transform="translate(50, 130)">
+    <rect x="0" y="0" width="30" height="20" rx="2" fill="#ffffff" opacity="0.8"/>
+    <rect x="5" y="5" width="20" height="10" fill="#1e3a8a" opacity="0.7"/>
+    <circle cx="8" cy="10" r="1" fill="#ffffff" opacity="0.9"/>
+    <circle cx="12" cy="10" r="1" fill="#ffffff" opacity="0.9"/>
+    <circle cx="16" cy="10" r="1" fill="#ffffff" opacity="0.9"/>
+  </g>
+  
+  <!-- Switch icon -->
+  <g transform="translate(320, 130)">
+    <rect x="0" y="0" width="30" height="20" rx="2" fill="#ffffff" opacity="0.8"/>
+    <rect x="5" y="5" width="20" height="10" fill="#3b82f6" opacity="0.7"/>
+    <line x1="8" y1="10" x2="22" y2="10" stroke="#ffffff" stroke-width="1" opacity="0.9"/>
+    <line x1="8" y1="12" x2="22" y2="12" stroke="#ffffff" stroke-width="1" opacity="0.9"/>
+    </g>
+</svg> 
+ 

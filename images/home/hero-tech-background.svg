@@ -1,0 +1,194 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions -->
+  <defs>
+    <!-- Main gradient -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#334155;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#475569;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#64748b;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Accent gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Circuit pattern -->
+    <pattern id="circuitPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="none"/>
+      <path d="M 10 50 L 90 50 M 50 10 L 50 90" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+      <circle cx="10" cy="50" r="3" fill="#3b82f6" opacity="0.5"/>
+      <circle cx="90" cy="50" r="3" fill="#3b82f6" opacity="0.5"/>
+      <circle cx="50" cy="10" r="3" fill="#3b82f6" opacity="0.5"/>
+      <circle cx="50" cy="90" r="3" fill="#3b82f6" opacity="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#mainGradient)"/>
+  
+  <!-- Circuit pattern overlay -->
+  <rect width="1200" height="600" fill="url(#circuitPattern)" opacity="0.1"/>
+  
+  <!-- Large geometric shapes -->
+  <g opacity="0.1">
+    <circle cx="100" cy="100" r="150" fill="url(#accentGradient)"/>
+    <circle cx="1100" cy="500" r="200" fill="url(#accentGradient)"/>
+    <circle cx="900" cy="150" r="100" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Data flow lines -->
+  <g stroke="url(#accentGradient)" stroke-width="2" opacity="0.6" filter="url(#glow)">
+    <!-- Horizontal flows -->
+    <path d="M 0 150 Q 300 100 600 150 T 1200 150" fill="none"/>
+    <path d="M 0 300 Q 300 250 600 300 T 1200 300" fill="none"/>
+    <path d="M 0 450 Q 300 400 600 450 T 1200 450" fill="none"/>
+    
+    <!-- Vertical flows -->
+    <path d="M 200 0 Q 150 150 200 300 T 200 600" fill="none"/>
+    <path d="M 600 0 Q 550 150 600 300 T 600 600" fill="none"/>
+    <path d="M 1000 0 Q 950 150 1000 300 T 1000 600" fill="none"/>
+  </g>
+  
+  <!-- Connection nodes -->
+  <g fill="url(#accentGradient)" opacity="0.8" filter="url(#glow)">
+    <circle cx="200" cy="150" r="8"/>
+    <circle cx="600" cy="150" r="8"/>
+    <circle cx="1000" cy="150" r="8"/>
+    
+    <circle cx="200" cy="300" r="8"/>
+    <circle cx="600" cy="300" r="8"/>
+    <circle cx="1000" cy="300" r="8"/>
+    
+    <circle cx="200" cy="450" r="8"/>
+    <circle cx="600" cy="450" r="8"/>
+    <circle cx="1000" cy="450" r="8"/>
+    
+    <circle cx="200" cy="150" r="8"/>
+    <circle cx="600" cy="150" r="8"/>
+    <circle cx="1000" cy="150" r="8"/>
+  </g>
+  
+  <!-- Floating tech icons -->
+  <g fill="#ffffff" opacity="0.9">
+    <!-- Server rack -->
+    <rect x="150" y="200" width="50" height="80" rx="3" fill="none" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="155" y="205" width="40" height="8" rx="1" fill="#3b82f6"/>
+    <rect x="155" y="220" width="40" height="8" rx="1" fill="#3b82f6"/>
+    <rect x="155" y="235" width="40" height="8" rx="1" fill="#3b82f6"/>
+    <rect x="155" y="250" width="40" height="8" rx="1" fill="#3b82f6"/>
+    <rect x="155" y="265" width="40" height="8" rx="1" fill="#3b82f6"/>
+    
+    <!-- Network switch -->
+    <rect x="950" y="180" width="60" height="40" rx="3" fill="none" stroke="#06b6d4" stroke-width="2"/>
+    <circle cx="960" cy="190" r="3" fill="#06b6d4"/>
+    <circle cx="970" cy="190" r="3" fill="#06b6d4"/>
+    <circle cx="980" cy="190" r="3" fill="#06b6d4"/>
+    <circle cx="990" cy="190" r="3" fill="#06b6d4"/>
+    <circle cx="960" cy="210" r="3" fill="#06b6d4"/>
+    <circle cx="970" cy="210" r="3" fill="#06b6d4"/>
+    <circle cx="980" cy="210" r="3" fill="#06b6d4"/>
+    <circle cx="990" cy="210" r="3" fill="#06b6d4"/>
+    
+    <!-- Data center -->
+    <rect x="850" y="350" width="70" height="50" rx="3" fill="none" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="855" y="355" width="60" height="8" rx="1" fill="#8b5cf6"/>
+    <rect x="855" y="370" width="60" height="8" rx="1" fill="#8b5cf6"/>
+    <rect x="855" y="385" width="60" height="8" rx="1" fill="#8b5cf6"/>
+    
+    <!-- Security shield -->
+    <path d="M 180 380 L 200 360 L 220 380 L 220 400 L 200 420 L 180 400 Z" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <path d="M 200 360 L 200 400" stroke="#f59e0b" stroke-width="3" fill="none"/>
+    <circle cx="200" cy="380" r="8" fill="#f59e0b"/>
+  </g>
+  
+  <!-- Central hub -->
+  <g opacity="0.9">
+    <!-- Main circle -->
+    <circle cx="600" cy="300" r="100" fill="none" stroke="url(#accentGradient)" stroke-width="4" opacity="0.6"/>
+    <circle cx="600" cy="300" r="80" fill="none" stroke="url(#accentGradient)" stroke-width="3" opacity="0.8"/>
+    <circle cx="600" cy="300" r="60" fill="none" stroke="url(#accentGradient)" stroke-width="2" opacity="1"/>
+    
+    <!-- Central icon -->
+    <g fill="#ffffff">
+      <!-- Computer/server icon -->
+      <rect x="580" y="280" width="40" height="30" rx="3"/>
+      <rect x="585" y="285" width="30" height="5" rx="1" fill="#3b82f6"/>
+      <rect x="585" y="295" width="30" height="5" rx="1" fill="#06b6d4"/>
+      <rect x="585" y="305" width="20" height="5" rx="1" fill="#8b5cf6"/>
+      
+      <!-- Connection points -->
+      <circle cx="600" cy="280" r="4" fill="#f59e0b"/>
+      <circle cx="600" cy="310" r="4" fill="#f59e0b"/>
+      <circle cx="580" cy="295" r="4" fill="#f59e0b"/>
+      <circle cx="620" cy="295" r="4" fill="#f59e0b"/>
+    </g>
+    
+    <!-- Radiating lines -->
+    <g stroke="url(#accentGradient)" stroke-width="2" opacity="0.6">
+      <line x1="600" y1="200" x2="600" y2="240"/>
+      <line x1="600" y1="360" x2="600" y2="400"/>
+      <line x1="520" y1="300" x2="560" y2="300"/>
+      <line x1="640" y1="300" x2="680" y2="300"/>
+    </g>
+  </g>
+  
+  <!-- Floating data particles -->
+  <g fill="#ffffff" opacity="0.7">
+    <circle cx="120" cy="280" r="2"/>
+    <circle cx="280" cy="180" r="2"/>
+    <circle cx="480" cy="320" r="2"/>
+    <circle cx="720" cy="180" r="2"/>
+    <circle cx="920" cy="320" r="2"/>
+    <circle cx="180" cy="480" r="2"/>
+    <circle cx="380" cy="520" r="2"/>
+    <circle cx="580" cy="480" r="2"/>
+    <circle cx="780" cy="520" r="2"/>
+    <circle cx="980" cy="480" r="2"/>
+    <circle cx="320" cy="120" r="2"/>
+    <circle cx="520" cy="80" r="2"/>
+    <circle cx="720" cy="120" r="2"/>
+    <circle cx="920" cy="80" r="2"/>
+  </g>
+  
+  <!-- Subtle grid -->
+  <g stroke="#3b82f6" stroke-width="0.5" opacity="0.1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+    <line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="900" y1="0" x2="900" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+    <line x1="1100" y1="0" x2="1100" y2="600"/>
+  </g>
+  
+  <!-- Animated elements (CSS animations can be applied) -->
+  <g class="pulse" opacity="0.6">
+    <circle cx="600" cy="300" r="120" fill="none" stroke="url(#accentGradient)" stroke-width="1" opacity="0.3"/>
+    <circle cx="600" cy="300" r="140" fill="none" stroke="url(#accentGradient)" stroke-width="1" opacity="0.2"/>
+    <circle cx="600" cy="300" r="160" fill="none" stroke="url(#accentGradient)" stroke-width="1" opacity="0.1"/>
+  </g>
+</svg>

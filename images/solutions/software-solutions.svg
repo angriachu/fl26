@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="100" cy="100" r="90" fill="#1a1a1a" opacity="0.1"/>
+    
+    <!-- Code Window -->
+    <g transform="translate(50, 50)">
+        <!-- Window Frame -->
+        <rect x="0" y="0" width="100" height="100" rx="5" fill="#000000"/>
+        
+        <!-- Title Bar -->
+        <rect x="0" y="0" width="100" height="20" rx="5" fill="#1a1a1a"/>
+        <circle cx="15" cy="10" r="3" fill="#ffffff"/>
+        <circle cx="30" cy="10" r="3" fill="#ffffff"/>
+        <circle cx="45" cy="10" r="3" fill="#ffffff"/>
+        
+        <!-- Code Lines -->
+        <line x1="10" y1="35" x2="90" y2="35" stroke="#ffffff" stroke-width="2"/>
+        <line x1="10" y1="50" x2="80" y2="50" stroke="#ffffff" stroke-width="2"/>
+        <line x1="10" y1="65" x2="70" y2="65" stroke="#ffffff" stroke-width="2"/>
+        <line x1="10" y1="80" x2="60" y2="80" stroke="#ffffff" stroke-width="2"/>
+    </g>
+    
+    <!-- Software Icons -->
+    <g transform="translate(100, 100)">
+        <!-- Database Icon -->
+        <circle cx="-40" cy="-20" r="15" fill="#000000"/>
+        <path d="M-50,-20 L-30,-20 L-30,0 L-50,0 Z" fill="#ffffff"/>
+        
+        <!-- Cloud Icon -->
+        <path d="M20,-20 Q20,-40 40,-40 Q60,-40 60,-20 Q60,0 40,0 Q20,0 20,-20" 
+              fill="#000000" opacity="0.8"/>
+    </g>
+</svg> 

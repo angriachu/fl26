@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="100" cy="100" r="90" fill="#1a1a1a" opacity="0.1"/>
+    
+    <!-- POS Terminal -->
+    <g transform="translate(50, 50)">
+        <!-- Terminal Base -->
+        <rect x="0" y="0" width="100" height="100" rx="10" fill="#f5f5f5"/>
+        
+        <!-- Screen -->
+        <rect x="10" y="10" width="80" height="60" rx="5" fill="#FFFFFF"/>
+        
+        <!-- Screen Content -->
+        <line x1="20" y1="25" x2="80" y2="25" stroke="#f5f5f5" stroke-width="2"/>
+        <line x1="20" y1="40" x2="80" y2="40" stroke="#f5f5f5" stroke-width="2"/>
+        <line x1="20" y1="55" x2="80" y2="55" stroke="#f5f5f5" stroke-width="2"/>
+        
+        <!-- Card Reader -->
+        <rect x="30" y="80" width="40" height="10" rx="2" fill="#000000"/>
+    </g>
+    
+    <!-- Payment Icons -->
+    <g transform="translate(100, 100)">
+        <!-- Credit Card -->
+        <rect x="-60" y="-20" width="40" height="25" rx="3" fill="#FFFFFF"/>
+        <line x1="-50" y1="-10" x2="-30" y2="-10" stroke="#f5f5f5" stroke-width="2"/>
+        <line x1="-50" y1="-5" x2="-30" y2="-5" stroke="#f5f5f5" stroke-width="2"/>
+        
+        <!-- Cash -->
+        <circle cx="20" cy="-7" r="10" fill="#10b981"/>
+        <text x="20" y="-2" font-family="Arial" font-size="12" fill="#FFFFFF" text-anchor="middle">$</text>
+    </g>
+</svg> 
