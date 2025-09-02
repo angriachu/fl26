@@ -1507,6 +1507,15 @@ input:focus, textarea:focus, select:focus {
     overflow: hidden;
 }
 
+.service-hero {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(30, 58, 138, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
 .service-hero-background {
     position: absolute;
     top: 0;
