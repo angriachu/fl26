@@ -124,74 +124,69 @@
 <body>
     <!-- Header Section -->
     <header class="header">
-        <div class="header__bar container">
-            <a class="logo" href="index.html">
-                <img src="images/logo/fixlab-logo.png" alt="FIXLAB" loading="lazy" />
-            </a>
-
-            <a class="tel tel--desktop" href="tel:+919778272227" aria-label="Call FixLab">
-                <i class="fas fa-phone"></i> +91 97782 72227
-            </a>
-
-            <button id="menuToggle" class="hamburger" aria-label="Toggle menu"
-                    aria-controls="primaryNav" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo/fixlab-logo.png" alt="FIXLAB Logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="services.html">Services</a>
+                            <div class="dropdown-content">
+                                <a href="services/access-control.html">Access Control Services</a>
+                                <a href="services/automation.html">Automation Service</a>
+                                <a href="services/cctv-installation.html">CCTV Installation</a>
+                                <a href="services/firewall.html">Firewall Installation</a>
+                                <a href="services/it-amc.html">IT AMC South India</a>
+                                <a href="services/it-consultancy.html">IT Consultancy</a>
+                                <a href="services/office-setup.html">Office IT Setup</a>
+                                <a href="services/it-support.html">IT Support Services</a>
+                                <a href="services/server-management.html">Server Management</a>
+                                <a href="services/structured-cabling.html">Structured Cabling</a>
+                                <a href="services/printer-repair.html">Printer Repair</a>
+                                <a href="services/network-support.html">Network Installation</a>
+                                <a href="services/pos-installation.html">POS Installation</a>
+                                <a href="services/security-system.html">Security System Installation</a>
+                                <a href="services/server-support.html">Server Installation</a>
+                                <a href="services/surveillance-system.html">Surveillance System Installation</a>
+                                <a href="services/telephone-system.html">Telephone System Installation</a>
+                                <a href="services/wireless-network.html">Wireless Network Installation</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="solutions.html">Solutions</a>
+                            <div class="dropdown-content">
+                                <a href="solutions/data-recovery.html">Data Recovery</a>
+                                <a href="solutions/data-storage.html">Data Storage</a>
+                                <a href="solutions/it-infrastructure.html">IT Infrastructure Solutions</a>
+                                <a href="solutions/pos-system.html">POS System</a>
+                                <a href="solutions/network-security.html">Network Security Solutions</a>
+                                <a href="solutions/pabx-ip-pbx.html">PABX /IP PBX</a>
+                                <a href="solutions/server-solution.html">Server Solution</a>
+                                <a href="solutions/networking.html">IT Networking Solutions</a>
+                                <a href="solutions/wireless.html">Wireless Network Solutions</a>
+                                <a href="solutions/software.html">Software Solutions</a>
+                            </div>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:+919778272227" class="phone-number">
+                        <i class="fas fa-phone"></i> +91 97782 72227
+                    </a>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
-
-        <nav id="primaryNav" class="nav" data-state="closed">
-            <ul class="nav__list">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-
-                <li class="has-children">
-                    <button class="dropdown-toggle" aria-expanded="false">Services</button>
-                    <ul class="submenu">
-                        <li><a href="services/access-control.html">Access Control Services</a></li>
-                        <li><a href="services/automation.html">Automation Service</a></li>
-                        <li><a href="services/cctv-installation.html">CCTV Installation</a></li>
-                        <li><a href="services/firewall.html">Firewall Installation</a></li>
-                        <li><a href="services/it-amc.html">IT AMC South India</a></li>
-                        <li><a href="services/it-consultancy.html">IT Consultancy</a></li>
-                        <li><a href="services/office-setup.html">Office IT Setup</a></li>
-                        <li><a href="services/it-support.html">IT Support Services</a></li>
-                        <li><a href="services/server-management.html">Server Management</a></li>
-                        <li><a href="services/structured-cabling.html">Structured Cabling</a></li>
-                        <li><a href="services/printer-repair.html">Printer Repair</a></li>
-                        <li><a href="services/network-support.html">Network Installation</a></li>
-                        <li><a href="services/pos-installation.html">POS Installation</a></li>
-                        <li><a href="services/security-system.html">Security System Installation</a></li>
-                        <li><a href="services/server-support.html">Server Installation</a></li>
-                        <li><a href="services/surveillance-system.html">Surveillance System Installation</a></li>
-                        <li><a href="services/telephone-system.html">Telephone System Installation</a></li>
-                        <li><a href="services/wireless-network.html">Wireless Network Installation</a></li>
-                    </ul>
-                </li>
-
-                <li class="has-children">
-                    <button class="dropdown-toggle" aria-expanded="false">Solutions</button>
-                    <ul class="submenu">
-                        <li><a href="solutions/data-recovery.html">Data Recovery</a></li>
-                        <li><a href="solutions/data-storage.html">Data Storage</a></li>
-                        <li><a href="solutions/it-infrastructure.html">IT Infrastructure Solutions</a></li>
-                        <li><a href="solutions/pos-system.html">POS System</a></li>
-                        <li><a href="solutions/network-security.html">Network Security Solutions</a></li>
-                        <li><a href="solutions/pabx-ip-pbx.html">PABX /IP PBX</a></li>
-                        <li><a href="solutions/server-solution.html">Server Solution</a></li>
-                        <li><a href="solutions/networking.html">IT Networking Solutions</a></li>
-                        <li><a href="solutions/wireless.html">Wireless Network Solutions</a></li>
-                        <li><a href="solutions/software.html">Software Solutions</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
-
-                <li class="tel tel--mobile">
-                    <a href="tel:+919778272227"><i class="fas fa-phone"></i> +91 97782 72227</a>
-                </li>
-            </ul>
-        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -721,42 +716,46 @@
     <!-- Navigation JavaScript -->
     <script>
         (function () {
-            const menuToggle = document.getElementById('menuToggle');
-            const nav = document.getElementById('primaryNav');
+            const menuToggle = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
 
             function closeNav() {
-                nav.setAttribute('data-state', 'closed');
-                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
                 document.body.classList.remove('no-scroll');
             }
 
             menuToggle.addEventListener('click', () => {
-                const open = nav.getAttribute('data-state') === 'open';
-                nav.setAttribute('data-state', open ? 'closed' : 'open');
-                menuToggle.setAttribute('aria-expanded', String(!open));
-                document.body.classList.toggle('no-scroll', !open);
+                const isOpen = navLinks.classList.contains('active');
+                navLinks.classList.toggle('active', !isOpen);
+                menuToggle.classList.toggle('active', !isOpen);
+                document.body.classList.toggle('no-scroll', !isOpen);
             });
 
-            // Dropdowns: tap to open
-            document.querySelectorAll('#primaryNav .has-children > .dropdown-toggle').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const li = e.currentTarget.parentElement;
-                    const isOpen = li.classList.contains('open');
-                    // close others
-                    document.querySelectorAll('#primaryNav .has-children.open').forEach(x => {
-                        if (x !== li) {
-                            x.classList.remove('open');
-                            x.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                    li.classList.toggle('open', !isOpen);
-                    btn.setAttribute('aria-expanded', String(!isOpen));
+            // Dropdowns: tap to open on mobile
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        const isOpen = dropdown.classList.contains('active');
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('.dropdown.active').forEach(openDropdown => {
+                            if (openDropdown !== dropdown) {
+                                openDropdown.classList.remove('active');
+                            }
+                        });
+                        
+                        dropdown.classList.toggle('active', !isOpen);
+                    }
                 });
             });
 
             // Close on outside click
             document.addEventListener('click', (e) => {
-                if (!nav.contains(e.target) && e.target !== menuToggle) {
+                if (!navLinks.contains(e.target) && e.target !== menuToggle) {
                     closeNav();
                 }
             });
