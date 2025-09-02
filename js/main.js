@@ -36,6 +36,9 @@ document.addEventListener('click', (e) => {
         mobileMenuBtn.classList.remove('active');
         body.classList.remove('menu-open');
         
+        // Close all dropdowns
+        closeAllDropdowns();
+        
         // Reset icon
         const icon = mobileMenuBtn.querySelector('i');
         if (icon) {
@@ -71,6 +74,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             // Close mobile menu after clicking a link
             navLinks.classList.remove('active');
             mobileMenuBtn.classList.remove('active');
+            body.classList.remove('menu-open');
+            closeAllDropdowns();
         }
     });
 });
@@ -267,26 +272,46 @@ if (callButton) {
     });
 }
 
-// Dropdown Menu
+// Enhanced Dropdown Menu with Mobile Support
 const dropdowns = document.querySelectorAll('.dropdown');
 dropdowns.forEach(dropdown => {
-    const link = dropdown.querySelector('.dropdown-link');
+    const link = dropdown.querySelector('a');
     const content = dropdown.querySelector('.dropdown-content');
 
     if (link && content) {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            content.classList.toggle('show');
+            // On mobile, toggle dropdown
+            if (window.innerWidth <= 767) {
+                e.preventDefault();
+                
+                // Close other dropdowns
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                dropdown.classList.toggle('active');
+            }
+            // On desktop, let the link work normally
         });
 
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!dropdown.contains(e.target)) {
-                content.classList.remove('show');
+                dropdown.classList.remove('active');
             }
         });
     }
 });
+
+// Close all dropdowns when mobile menu is closed
+function closeAllDropdowns() {
+    dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+    });
+}
 
 // Lazy Loading Images
 document.addEventListener('DOMContentLoaded', () => {
@@ -357,8 +382,29 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Initialize performance optimizations and responsive features
+// Handle regular navigation links to close mobile menu
 document.addEventListener('DOMContentLoaded', function() {
+    // Close mobile menu when clicking on regular navigation links
+    const navLinks = document.querySelectorAll('.nav-links a[href]:not([href^="#"])');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Small delay to allow the link to work
+            setTimeout(() => {
+                if (window.innerWidth <= 767) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                    document.querySelector('.mobile-menu-btn').classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    closeAllDropdowns();
+                    
+                    const icon = document.querySelector('.mobile-menu-btn i');
+                    if (icon) {
+                        icon.className = 'fas fa-bars';
+                    }
+                }
+            }, 100);
+        });
+    });
+    
     // Initialize performance optimizations
     optimizePerformance();
     
