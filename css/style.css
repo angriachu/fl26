@@ -50,6 +50,7 @@ body {
     gap: 12px; 
     padding: var(--header-pad, 10px) 16px; 
     padding-top: calc(env(safe-area-inset-top) + var(--header-pad, 10px)); 
+    min-height: 60px;
 }
 
 .logo img { 
@@ -379,8 +380,15 @@ body {
 
 /* Mobile Navigation Enhancements - New Structure */
 @media (max-width: 992px) {
+    .header__bar {
+        padding: 8px 16px;
+        padding-top: calc(env(safe-area-inset-top) + 8px);
+        min-height: 50px;
+        gap: 8px;
+    }
+    
     .logo img { 
-        height: 24px; 
+        height: 20px; 
     }
     
     .tel--desktop { 
@@ -389,12 +397,20 @@ body {
     
     .hamburger { 
         display: inline-flex; 
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+    }
+    
+    .hamburger span {
+        height: 2px;
+        margin: 4px 0;
     }
 
     /* Off-canvas drop-down menu below the header bar */
     .nav { 
         position: fixed; 
-        inset: calc(56px + env(safe-area-inset-top)) 0 0 0; 
+        inset: calc(50px + env(safe-area-inset-top)) 0 0 0; 
         transform: translateY(-100%); 
         transition: transform .25s ease; 
         padding: 16px; 
@@ -405,6 +421,12 @@ body {
     
     .nav[data-state="open"] { 
         transform: translateY(0); 
+    }
+    
+    /* Adjust hero padding for compact mobile header */
+    .hero {
+        padding: 100px 0 70px;
+        min-height: 85vh;
     }
 
     .nav__list { 
@@ -435,10 +457,13 @@ body {
         border-radius: 0;
         min-width: auto;
         list-style: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
     }
     
     .has-children.open > .submenu { 
-        display: block; 
+        display: block !important; 
     }
     
     .has-children.open .dropdown-toggle::after {
@@ -450,11 +475,35 @@ body {
         margin: 2px 0;
         border-radius: 0;
         background: transparent;
+        display: block;
+        width: 100%;
     }
     
     .submenu a:hover {
         background-color: rgba(30, 58, 138, 0.1);
         color: var(--primary-color);
+    }
+    
+    /* Ensure dropdown toggle is properly styled on mobile */
+    .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        text-align: left;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        cursor: pointer;
+        padding: 14px 4px;
+        min-height: 44px;
+        transition: color 0.3s ease;
+    }
+    
+    .dropdown-toggle:hover {
+        color: var(--primary-color);
+        background-color: rgba(30, 58, 138, 0.05);
     }
 
     .tel--mobile { 
@@ -482,6 +531,41 @@ body {
         width: 100%;
         justify-content: center;
         margin: 8px 0;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .header__bar {
+        padding: 6px 12px;
+        padding-top: calc(env(safe-area-inset-top) + 6px);
+        min-height: 45px;
+        gap: 6px;
+    }
+    
+    .logo img {
+        height: 18px;
+    }
+    
+    .hamburger {
+        width: 28px;
+        height: 28px;
+        padding: 3px;
+    }
+    
+    .hamburger span {
+        height: 2px;
+        margin: 3px 0;
+    }
+    
+    .nav {
+        inset: calc(45px + env(safe-area-inset-top)) 0 0 0;
+    }
+    
+    /* Adjust hero padding for compact mobile header */
+    .hero {
+        padding: 80px 0 60px;
+        min-height: 90vh;
     }
 }
 
