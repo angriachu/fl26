@@ -1,7 +1,7 @@
 {
-    "name": "FIXLAB IT Support",
+    "name": "FIXLAB IT Support - Professional IT Services in Trivandrum, Kerala",
     "short_name": "FIXLAB",
-    "description": "Professional IT support services in Trivandrum region with onsite assistance available",
+    "description": "Professional IT support services in Trivandrum region including Kazhakoottam, Karyavattom, Kulathur, Kaniyapuram, Pallipuram, Sreekaryam, Kesavadasapuram. Onsite IT support, network solutions, security services, and IT consulting available.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#1e3a8a",
@@ -9,7 +9,11 @@
     "orientation": "portrait-primary",
     "scope": "/",
     "lang": "en",
-    "categories": ["business", "productivity", "utilities"],
+    "dir": "ltr",
+    "categories": ["business", "productivity", "utilities", "technology", "professional services"],
+    "keywords": ["IT Support", "IT Services", "Trivandrum", "Kerala", "Network Solutions", "Security Services", "CCTV Installation", "IT Consulting"],
+    "author": "FIXLAB IT Support",
+    "homepage_url": "https://fixlab.co.in",
     "icons": [
         {
             "src": "/images/logo/fixlab-logo.png",
@@ -22,6 +26,42 @@
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
+        },
+        {
+            "src": "/images/logo/fixlab-logo.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/logo/fixlab-logo.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/logo/fixlab-logo.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/logo/fixlab-logo.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/logo/fixlab-logo.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/logo/fixlab-logo.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any"
         }
     ],
     "screenshots": [
@@ -29,7 +69,46 @@
             "src": "/images/logo/fixlab-logo.png",
             "sizes": "1280x720",
             "type": "image/png",
-            "form_factor": "wide"
+            "form_factor": "wide",
+            "label": "FIXLAB IT Support Homepage"
+        },
+        {
+            "src": "/images/logo/fixlab-logo.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "FIXLAB IT Support Mobile View"
         }
-    ]
+    ],
+    "shortcuts": [
+        {
+            "name": "Contact Us",
+            "short_name": "Contact",
+            "description": "Get in touch with FIXLAB IT Support",
+            "url": "/contact.html",
+            "icons": [
+                {
+                    "src": "/images/logo/fixlab-logo.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Our Services",
+            "short_name": "Services",
+            "description": "View all IT support services",
+            "url": "/services.html",
+            "icons": [
+                {
+                    "src": "/images/logo/fixlab-logo.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    }
 }
