@@ -6,14 +6,26 @@ AOS.init({
     mirror: false
 });
 
-// Mobile Menu Toggle
+// Enhanced Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
+const body = document.body;
 
 if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         mobileMenuBtn.classList.toggle('active');
+        body.classList.toggle('menu-open');
+        
+        // Change icon
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon) {
+            if (navLinks.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
     });
 }
 
@@ -22,6 +34,27 @@ document.addEventListener('click', (e) => {
     if (!e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-btn')) {
         navLinks.classList.remove('active');
         mobileMenuBtn.classList.remove('active');
+        body.classList.remove('menu-open');
+        
+        // Reset icon
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon) {
+            icon.className = 'fas fa-bars';
+        }
+    }
+});
+
+// Close mobile menu on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 767) {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        body.classList.remove('menu-open');
+        
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon) {
+            icon.className = 'fas fa-bars';
+        }
     }
 });
 
@@ -94,6 +127,111 @@ if (contactForm) {
             }, 5000);
         }, 1500);
     });
+}
+
+// Responsive Image Loading
+function loadResponsiveImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Touch Gesture Support for Mobile
+function initTouchGestures() {
+    let startX = 0;
+    let startY = 0;
+    let endX = 0;
+    let endY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        endY = e.changedTouches[0].clientY;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+        const threshold = 50;
+
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
+            if (diffX > 0) {
+                // Swipe left
+                handleSwipeLeft();
+            } else {
+                // Swipe right
+                handleSwipeRight();
+            }
+        }
+    }
+
+    function handleSwipeLeft() {
+        // Close mobile menu on swipe left
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            body.classList.remove('menu-open');
+            
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                icon.className = 'fas fa-bars';
+            }
+        }
+    }
+
+    function handleSwipeRight() {
+        // Open mobile menu on swipe right (if closed)
+        if (!navLinks.classList.contains('active')) {
+            navLinks.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+            body.classList.add('menu-open');
+            
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                icon.className = 'fas fa-times';
+            }
+        }
+    }
+}
+
+// Performance Optimization
+function optimizePerformance() {
+    // Debounce scroll events
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(() => {
+            // Handle scroll-based animations
+            handleScrollAnimations();
+        }, 16); // 60fps
+    });
+
+    // Lazy load images
+    if ('IntersectionObserver' in window) {
+        loadResponsiveImages();
+    }
+
+    // Initialize touch gestures on mobile
+    if ('ontouchstart' in window) {
+        initTouchGestures();
+    }
 }
 
 // Testimonials Slider
@@ -217,4 +355,22 @@ style.textContent = `
         transform: translateY(-3px);
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Initialize performance optimizations and responsive features
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize performance optimizations
+    optimizePerformance();
+    
+    // Initialize responsive features on mobile
+    if (window.innerWidth <= 767) {
+        initTouchGestures();
+    }
+    
+    // Handle window resize for responsive features
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 767) {
+            initTouchGestures();
+        }
+    });
+}); 
