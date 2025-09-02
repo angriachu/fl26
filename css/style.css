@@ -113,6 +113,34 @@ body {
     position: relative; 
 }
 
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    padding: 10px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.dropdown-toggle::after {
+    content: '\f107';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+}
+
+.has-children.open .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
 .submenu { 
     position: absolute; 
     left: 0; 
@@ -125,11 +153,61 @@ body {
     box-shadow: 0 10px 24px rgba(0,0,0,.12); 
     display: none; 
     z-index: 1000;
+    list-style: none;
+    margin: 0;
+    border: 1px solid var(--border-color);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
-.has-children:hover > .submenu { 
-    display: block; 
-} /* desktop hover */
+/* Show submenu when parent is open or hovered */
+.has-children.open > .submenu,
+.has-children:hover > .submenu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu li {
+    margin: 0;
+    padding: 0;
+}
+
+.submenu a {
+    display: block;
+    padding: 8px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px;
+    margin: 2px 8px;
+}
+
+.submenu a:hover {
+    background-color: var(--light-background);
+    color: var(--primary-color);
+}
+
+/* Desktop hover functionality */
+@media (min-width: 993px) {
+    .has-children:hover > .submenu { 
+        display: block !important; 
+    }
+    
+    .dropdown-toggle::after {
+        display: none;
+    }
+    
+    /* Ensure submenu is visible on desktop */
+    .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
 
 .tel--mobile { 
     display: none; 
@@ -356,10 +434,27 @@ body {
         background: var(--light-background);
         border-radius: 0;
         min-width: auto;
+        list-style: none;
     }
     
     .has-children.open > .submenu { 
         display: block; 
+    }
+    
+    .has-children.open .dropdown-toggle::after {
+        transform: rotate(180deg);
+    }
+    
+    .submenu a {
+        padding: 10px 16px;
+        margin: 2px 0;
+        border-radius: 0;
+        background: transparent;
+    }
+    
+    .submenu a:hover {
+        background-color: rgba(30, 58, 138, 0.1);
+        color: var(--primary-color);
     }
 
     .tel--mobile { 
