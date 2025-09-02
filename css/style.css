@@ -445,6 +445,20 @@ body {
     text-align: center;
 }
 
+.footer-areas p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.footer-areas i {
+    color: #fbbf24;
+    width: 16px;
+    text-align: center;
+}
+
 .footer-bottom {
     position: relative;
     z-index: 2;
@@ -471,6 +485,10 @@ body {
     }
     
     .footer-contact p {
+        justify-content: center;
+    }
+    
+    .footer-areas p {
         justify-content: center;
     }
 }
@@ -548,6 +566,124 @@ body {
     .footer-info {
         max-width: 100%;
     }
+}
+
+/* Local Service Areas Section */
+.local-areas {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(30, 58, 138, 0.6) 25%, rgba(59, 130, 246, 0.5) 50%, rgba(96, 165, 250, 0.4) 75%, rgba(0, 0, 0, 0.8) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.local-areas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 25%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+.local-areas .container {
+    position: relative;
+    z-index: 2;
+}
+
+.local-areas .section-subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.area-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.area-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(30, 58, 138, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: -1;
+}
+
+.area-card:hover {
+    transform: translateY(-5px);
+    border-color: #fbbf24;
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+}
+
+.area-card i {
+    font-size: 2.5rem;
+    color: #fbbf24;
+    margin-bottom: 1rem;
+}
+
+.area-card h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.area-card p {
+    color: #e5e7eb;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.onsite-badge {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #000000;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    border: 2px solid #fbbf24;
+}
+
+.onsite-cta {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.onsite-cta h3 {
+    color: #fbbf24;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.onsite-cta p {
+    color: #e5e7eb;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 /* About Page Styles */
