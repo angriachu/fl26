@@ -2283,9 +2283,7 @@ input:focus, textarea:focus, select:focus {
     text-align: center;
 }
 
-.service-hero {
-    background-image: url('../images/services/hero-bg.jpg');
-}
+/* .service-hero background is defined earlier with gradient */
 
 .solution-hero {
     background-image: url('../images/solutions/hero-bg.jpg');
