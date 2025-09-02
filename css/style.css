@@ -1502,41 +1502,45 @@ input:focus, textarea:focus, select:focus {
 
 /* Services Page Styles */
 .services-hero {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(30, 58, 138, 0.6) 25%, rgba(59, 130, 246, 0.5) 50%, rgba(96, 165, 250, 0.4) 75%, rgba(0, 0, 0, 0.8) 100%);
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(30, 58, 138, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
     color: white;
-    padding: 8rem 0 4rem;
+    padding: 120px 0 80px;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
-.services-hero-background {
+.service-hero-background {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../images/services/services-background.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.9;
+    background: url('../images/services/services-background.svg') center/cover;
+    opacity: 0.1;
     z-index: 1;
 }
 
-.services-hero .container {
+.service-hero-content {
     position: relative;
     z-index: 2;
 }
 
-.service-section {
-    padding: 5rem 0;
+.service-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
 }
 
-.service-section:nth-child(even) {
-    background-color: var(--light-background);
+.service-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.service-details {
+    padding: 80px 0;
+    background: #f8f9fa;
 }
 
 .service-content {
@@ -1546,93 +1550,191 @@ input:focus, textarea:focus, select:focus {
     align-items: center;
 }
 
-.service-content.reverse {
-    direction: rtl;
-}
-
-.service-content.reverse .service-text {
-    direction: ltr;
-}
-
 .service-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
 }
 
-.service-features {
+.service-text h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: var(--secondary-color);
+}
+
+.service-text ul {
     list-style: none;
-    margin: 2rem 0;
+    padding: 0;
 }
 
-.service-features li {
-    margin-bottom: 0.5rem;
+.service-text li {
+    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.service-features i {
+.service-text i {
     color: var(--primary-color);
+    font-size: 1.1rem;
 }
 
 .service-image img {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.service-packages {
-    padding: 5rem 0;
-    background-color: var(--light-background);
+.service-features {
+    padding: 80px 0;
+    background: white;
 }
 
-.packages-grid {
+.features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    margin-top: 3rem;
 }
 
-.package-card {
-    background-color: var(--background-color);
-    padding: 2rem;
-    border-radius: 8px;
+.feature-card {
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.package-card:hover {
+.feature-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.package-card.featured {
-    border: 2px solid var(--primary-color);
-    transform: scale(1.05);
-}
-
-.package-card h3 {
+.feature-card i {
+    font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.price {
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.feature-card p {
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+}
+
+.service-areas {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(30, 58, 138, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
+    color: white;
+}
+
+.service-areas .section-title {
+    color: white;
+}
+
+.service-areas .section-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.area-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.area-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.area-card i {
     font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
 }
 
-.price span {
-    font-size: 1rem;
-    color: var(--light-text);
-}
-
-.package-card ul {
-    list-style: none;
-    margin-bottom: 2rem;
-}
-
-.package-card ul li {
+.area-card h3 {
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: white;
+}
+
+.area-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.onsite-badge {
+    background: linear-gradient(135deg, var(--accent-color), #fbbf24);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    min-width: 120px;
+}
+
+/* Responsive Design for Service Pages */
+@media (max-width: 768px) {
+    .service-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .service-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .service-text h2 {
+        font-size: 2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .areas-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+    }
 }
 
 /* Contact Page Styles */
